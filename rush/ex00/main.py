@@ -48,6 +48,17 @@ P . .
 . . . . . . . .
     """
 
+    board6 = """\
+. . . . . . . .
+. . . K . . . .
+. . . . . . . .
+. . . K . Q . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+    """
+
 
 # Expected: Success
 
@@ -56,6 +67,7 @@ P . .
     checkmate(board3)
     checkmate(board4)
     checkmate(board5)
+    checkmate(board6)
 
 if __name__ == "__main__":
     main()

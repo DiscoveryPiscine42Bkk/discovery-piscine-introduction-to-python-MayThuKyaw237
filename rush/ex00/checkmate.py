@@ -18,19 +18,31 @@ def checkmate(board_str):
         if len(row) != len(board):
             print("Error: The board is not square!")
             return
+        
+    # For checking the number of Kings
+    king_count = sum(row.count('K') for row in board)
+    if king_count == 0:
+        print("Fail!!! No King on the board!!!")
+        return
+    elif king_count > 1:
+        print("Fail!!! There must be exactly one King on the board!!!")
+        return
+    
     # Find the King position
     king_pos = None
+    king_count = 0
     for y in range(size):
         for x in range(size):
             if board[y][x] == 'K':
-                king_pos = (y, x) #assing the position of the King
+                king_pos = (y, x)
+                king_count += 1 #assing the position of the King
                 break
         if king_pos:
             break
 
-    if not king_pos: #if the King is not found
-        print("Fail")
-        return
+    # if not king_pos: #if the King is not found
+    #     print("Fail: No King on the board!")
+    #     return
 
     yk, xk = king_pos # unpack the position of the King
 
